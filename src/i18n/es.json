@@ -1,0 +1,220 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "download_cv": "Descargar CV"
+  },
+  "hero": {
+    "available": "Disponible para oportunidades",
+    "title": "Senior Android Engineer",
+    "subtitle": "Más de 10 años construyendo apps Android nativas en Kotlin. Especializado en productos fintech, Clean Architecture, OWASP Mobile Security y desarrollo asistido por IA.",
+    "cta_projects": "Ver proyectos",
+    "cta_contact": "Contactar"
+  },
+  "stats": {
+    "years": "Años de experiencia",
+    "personal_projects": "Proyectos personales",
+    "corporate_projects": "Proyectos corporativos",
+    "companies": "Empresas top"
+  },
+  "sections": {
+    "experience": "Experiencia Laboral",
+    "projects_corporate": "Proyectos Corporativos",
+    "projects_android": "Apps Android",
+    "projects_mobile": "Mobile & PWA",
+    "projects_web": "Web & Backend",
+    "projects_hardware": "Hardware & IoT",
+    "projects_game": "Videojuego",
+    "about": "Sobre mí",
+    "education": "Formación",
+    "certifications": "Certificaciones",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "projects": {
+    "thread_art_app": {
+      "title": "Thread Art — App Android",
+      "subtitle": "De foto a obra de hilo, desde tu Android",
+      "desc": "App Android nativa que genera instrucciones de String Art a partir de fotos. Incluye 2 algoritmos de IA (CTA multicolor y Kaspar), integración Python via Chaquopy, filtros GPU en tiempo real, segmentación ML Kit, generación de G-Code y control de máquina CNC via HTTP.",
+      "hardware_note": "Parte del ecosistema CNC completo ↓"
+    },
+    "track_app": {
+      "title": "Track App — Gestión en Campo",
+      "subtitle": "Órdenes de trabajo con formularios dinámicos y GPS offline",
+      "desc": "App Android nativa para gestión de operaciones en campo. Server-Driven UI: el backend define dinámicamente todos los campos del formulario. Tracking GPS en background, sincronización offline-first con Django. Firma digital, QR, fotos y validación de geolocalización."
+    },
+    "open_door_app": {
+      "title": "Open Door — Android + Widget IoT",
+      "subtitle": "Abre la puerta de tu edificio con un tap, incluso desde el widget",
+      "desc": "App Android nativa con Jetpack Compose y Material 3 que controla un relay ESP32 via Firebase Realtime Database. Incluye widget de pantalla de inicio (Glance API) con soporte para Samsung. Dark mode y light mode completos."
+    },
+    "inspection_app": {
+      "title": "Inspection Checklist — Flutter",
+      "subtitle": "App profesional de inspección de propiedades con PDF y offline",
+      "desc": "App Flutter para inspección técnica de obras. Checklists dinámicos desde JSON, evaluación por categorías, evidencia fotográfica, plano interactivo del piso con puntos de inspección marcados y exportación a PDF. Clean Architecture + BLoC + Hive."
+    },
+    "open_door_pwa": {
+      "title": "Open Door PWA — App Web IoT",
+      "subtitle": "PWA instalable para controlar el relay ESP32 desde cualquier browser",
+      "desc": "Progressive Web App (vanilla JS) que abre la puerta del edificio escribiendo en Firebase RTDB. Instalable en cualquier dispositivo, offline cache via Service Worker, vibración haptic en apertura exitosa."
+    },
+    "stories_app": {
+      "title": "Stories App — Karaoke de Lectura",
+      "subtitle": "App Flutter que resalta palabras en tiempo real mientras lees en voz alta",
+      "desc": "App Flutter para cuentos infantiles con reconocimiento de voz en tiempo real. Las palabras se resaltan progresivamente (efecto karaoke). Efectos de sonido en palabras clave, filtros por categorías y soporte iOS + Android."
+    },
+    "thread_studio": {
+      "title": "Thread Art Studio — Desktop",
+      "subtitle": "App de escritorio Python para generar String Art con 3 algoritmos",
+      "desc": "Aplicación de escritorio Python/PySide6. Tres algoritmos (CTA multicolor, Kaspar, Nail Art), visor 3D de G-Code, i18n (EN/ES), exportación PDF e instrucciones de ensamblaje. El hermano mayor de la app Android."
+    },
+    "track_admin": {
+      "title": "Track Admin — Backend de Campo",
+      "subtitle": "Panel Django con mapas GPS en vivo, formularios dinámicos y SQL Explorer",
+      "desc": "Backend Django para el sistema Track App. Admin UI Jet, mapas Leaflet con rutas GPS reales (GeoDjango), motor de formularios dinámicos, exportación CSV/Excel/JSON y explorador SQL integrado. División político-administrativa de Colombia (datos DANE)."
+    },
+    "simple_crm": {
+      "title": "SimpleCRM — Gestión HOA Bancaria",
+      "subtitle": "Plataforma web para administración financiera de conjuntos residenciales",
+      "desc": "Plataforma web para administración de copropiedades: gestión de pagos, obligaciones financieras, reportes y transferencias. Dark mode + light mode. Stack Django + Vue.js."
+    },
+    "quiz_web": {
+      "title": "QuizWeb — Plataforma de Cuestionarios",
+      "subtitle": "Plataforma web para crear y practicar cuestionarios universitarios",
+      "desc": "App web PHP con motor de cuestionarios: selección única, múltiple y respuesta libre. Multimedia (imagen, audio, video), syntax highlighting para preguntas de código, cronómetro y dark mode. Recuperación de sesión con sessionStorage."
+    },
+    "fastory": {
+      "title": "Fastory — Inventario de Restaurante",
+      "subtitle": "Sistema de administración para restaurantes: ventas, inventario y caja",
+      "desc": "App web PHP con arquitectura MVC custom (LegoBox). Control de productos, ingredientes, ventas, mesas, meseros, caja y reportes exportables a Word. Roles: Admin / Mesero / Cajero."
+    },
+    "cnc_machine": {
+      "title": "Máquina CNC de String Art",
+      "subtitle": "Diseñé y construí una CNC que clava y teje hilo automáticamente",
+      "desc": "Máquina CNC personalizada que recibe G-Code generado por las apps (Android + Desktop) y ejecuta dos fases: (1) Fase drill: taladra los huecos para los clavos; (2) Fase tejido: mueve el hilo entre clavos siguiendo el patrón. Integra con el servidor HTTP local de la app Android via NanoHTTPd.",
+      "failures_title": "El proceso real de ingeniería",
+      "failures_desc": "No todo funciona al primer intento. Estas fotos documentan los fallos e iteraciones — porque así es como se ve la ingeniería de verdad."
+    },
+    "esp32_door": {
+      "title": "ESP32 Smart Door — Hardware IoT",
+      "subtitle": "Intercepté el portero eléctrico de mi edificio con un ESP32 y Firebase",
+      "desc": "Sistema IoT: relay 10A conectado a 2 hilos del intercomunicador de 4 hilos del edificio. El ESP32 escucha Firebase RTDB via stream persistente. Alimentado con regulador 110V→5V del panel del portero. Configuración WiFi via Bluetooth Serial. Latencia: ~1 segundo entre escritura en Firebase y activación del relay."
+    },
+    "rescue_game": {
+      "title": "Rescue Lorraine — Juego Unity",
+      "subtitle": "Mi primer juego 2D, hecho en Unity durante la universidad (2016)",
+      "desc": "Juego 2D desarrollado en Unity durante la época universitaria (2016). Un proyecto que marcó los inicios del desarrollo de software y el gusto por crear experiencias interactivas."
+    }
+  },
+  "experience": {
+    "present": "Actualidad",
+    "full_time": "Tiempo completo",
+    "mercadolibre": {
+      "role": "Sr. Software Engineer",
+      "bullets": [
+        "Desarrollo Android nativo para productos fintech en Kotlin y Java",
+        "Desarrollo del core nativo y capas intermedias integrando servicios server-side y flujos de datos sensibles",
+        "Testing E2E e integración con Appium — asegurando calidad en flujos críticos de alto tráfico",
+        "Secure coding alineado con OWASP Mobile Top 10: autenticación, protección de datos e información financiera",
+        "Desarrollo asistido por IA con enfoque spec-driven y Model Context Protocols (MCPs)"
+      ]
+    },
+    "pragma": {
+      "role": "Sr. Desarrollador Android",
+      "bullets": [
+        "Lideré el desarrollo Android de las apps de Grupo Éxito (App Éxito & App Carulla) — millones de usuarios",
+        "Contribuí en la app corporativa PAMS de Bancolombia",
+        "Clean Architecture, MVVM y CI/CD con Azure DevOps"
+      ]
+    },
+    "software_estrategico": {
+      "role": "Ingeniero de Desarrollo de Software",
+      "bullets": ["Desarrollo de apps Java y Android con metodologías ágiles"]
+    },
+    "personalsoft": {
+      "role": "Analista de Ingeniería de Software",
+      "bullets": [
+        "Desarrollo web y móvil con Spring Boot, AngularJS y Angular",
+        "Configuración de integración continua con GitFlow"
+      ]
+    },
+    "horbath": {
+      "role": "Ingeniero Desarrollador",
+      "bullets": ["Desarrollo full-stack: Android, Django, Angular 2+, PHP, Spring"]
+    },
+    "macondo": {
+      "role": "Desarrollador & Asesor Técnico",
+      "bullets": [
+        "Plataforma SIES para la Gobernación del Atlántico (sistema de gobernabilidad)",
+        "Microempresarios BAQ — plataforma de microcréditos para la Alcaldía de Barranquilla",
+        "Asesor técnico para emprendedores de Apps.co (iniciativa MinTIC)"
+      ]
+    }
+  },
+  "about": {
+    "bio": "Soy Juan Guillermo, Ingeniero de Sistemas de la Universidad Simón Bolívar (Barranquilla, Colombia). Llevo más de 10 años construyendo software y los últimos 5 años me he especializado en apps Android nativas para productos fintech en Kotlin.\n\nActualmente en Mercado Libre, trabajo en el core nativo de la app con foco en secure coding (OWASP Mobile Top 10), testing E2E con Appium y colaboración cercana con diseño desde Figma.\n\nMás allá del trabajo: construyo cosas con mis propias manos. La máquina CNC de String Art que puedes ver en este portafolio la diseñé, construí y programé desde cero — el hardware y las apps Android y Desktop que la controlan.",
+    "skills_title": "Habilidades Técnicas",
+    "education_items": [
+      { "title": "Ingeniería de Sistemas", "school": "Universidad Simón Bolívar", "year": "2012 – 2017" },
+      { "title": "Diplomado en Ingeniería del Software", "school": "Universidad Simón Bolívar", "year": "2017" }
+    ],
+    "cert_items": [
+      "Speexx English CEFR B1.1 — 2024",
+      "Udemy: Master Java Unit Testing with Spring Boot & Mockito — 2024",
+      "Udemy: Arquitectura Moderna DDD, Eventos y Microservicios — 2023",
+      "Udemy: Principios SOLID y Clean Code — 2023",
+      "Udemy: Automatización Móvil — Appium, Cucumber, Android & iOS + Jenkins — 2022",
+      "SCRUMstudy: Scrum Fundamentals Certified — 2019",
+      "Platzi: Kotlin para Android — 2018"
+    ]
+  },
+  "contact": {
+    "title": "Trabajemos Juntos",
+    "subtitle": "Disponible para proyectos freelance senior Android o posiciones de tiempo completo.",
+    "name_label": "Nombre",
+    "email_label": "Correo electrónico",
+    "subject_label": "Asunto",
+    "subject_freelance": "Proyecto Freelance",
+    "subject_job": "Oportunidad Laboral",
+    "subject_collab": "Colaboración",
+    "subject_other": "Otro",
+    "message_label": "Mensaje",
+    "send_btn": "Enviar mensaje",
+    "direct_contact": "O contáctame directamente"
+  },
+  "corporate": {
+    "subtitle": "Apps entregadas en empresas top — código bajo NDA",
+    "ml_period": "Mercado Libre · Ago 2022 – Actualidad",
+    "ml_title": "MercadoPago — Android Core",
+    "ml_badge": "NDA · 40M+ usuarios",
+    "ml_desc": "Desarrollo Android nativo para productos fintech — pagos, flujos de datos sensibles y seguridad (OWASP Mobile Top 10). Testing E2E con Appium. Desarrollo asistido por IA con enfoque spec-driven y Model Context Protocols.",
+    "pragma_period": "Pragma S.A · Oct 2019 – Ago 2022",
+    "pragma_count": "3 proyectos entregados",
+    "pragma_badge": "NDA",
+    "exito_desc": "Apps de retail del Grupo Éxito — cadena más grande de Colombia. 5M+ usuarios. Migración a Jetpack Compose, MVVM, multi-flavor y CI/CD con Azure DevOps.",
+    "pams_desc": "App corporativa interna para asesores de campo de Bancolombia. Offline-first, sincronización en background, flujos por rol y geofencing.",
+    "macondo_period": "Macondo Lab · Jul 2015 – Sep 2017",
+    "macondo_count": "4 proyectos entregados",
+    "macondo_badge": "Gov · Fintech",
+    "sies_desc": "Plataforma de gobernabilidad con Universidad Simón Bolívar. Django + Android.",
+    "micro_desc": "Gestión de microcréditos, convenio Alcaldía de Barranquilla. Django.",
+    "premio_desc": "Plataforma de gestión de convocatorias universitarias. Java Spring + Django.",
+    "appsco_desc": "Asesor técnico para emprendedores en la iniciativa Apps.co del MinTIC.",
+    "ufotic_period": "UFO TIC · 2017 – 2018",
+    "ufotic_count": "2 proyectos entregados",
+    "ufotic_badge": "Industria",
+    "aqua_desc": "Plataforma de toma y control de muestras de agua potable en Palmira. Django + Android.",
+    "sos_desc": "Plataforma de gestión de seguridad para empresa de vigilancia. Django + Android.",
+    "freelance_period": "Freelance · 2014 – 2019",
+    "freelance_count": "2 proyectos entregados",
+    "freelance_badge": "Independiente",
+    "imachines_desc": "Control de mantenimientos de equipos industriales. Django + Android + Landing WordPress.",
+    "mensajero_desc": "Plataforma de gestión de envíos y trámites. PHP. 2014."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "built_with": "Construido con Vite + Tailwind CSS"
+  }
+}

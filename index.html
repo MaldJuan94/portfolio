@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Escorcia — Sr. Android Engineer</title>
+  <meta name="description" content="Sr. Android Engineer with 10+ years. Kotlin, Jetpack Compose, Clean Architecture. Currently at Mercado Libre." />
+  <meta property="og:title" content="Juan Escorcia — Android Engineer Portfolio" />
+  <meta property="og:description" content="Sr. Android Engineer · Kotlin · Fintech · Mercado Libre" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0A0A0F" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     VIDEO MODAL
+════════════════════════════════════════════════════════════ -->
+<div id="video-modal" role="dialog" aria-modal="true" aria-label="Video player">
+  <button id="modal-close" aria-label="Close video">✕</button>
+  <video id="modal-video" controls playsinline></video>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MOBILE MENU
+════════════════════════════════════════════════════════════ -->
+<div id="mobile-menu">
+  <a href="#experience" class="nav-link" data-i18n="nav.experience" onclick="closeMobileMenu()">Experience</a>
+  <a href="#projects"   class="nav-link" data-i18n="nav.projects"   onclick="closeMobileMenu()">Projects</a>
+  <a href="#about"      class="nav-link" data-i18n="nav.about"      onclick="closeMobileMenu()">About</a>
+  <a href="#contact"    class="nav-link" data-i18n="nav.contact"    onclick="closeMobileMenu()">Contact</a>
+  <div style="display:flex;gap:8px;margin-top:1rem;">
+    <button class="lang-btn" data-lang-btn="en" onclick="handleSetLang('en')">EN</button>
+    <span style="color:var(--border)">|</span>
+    <button class="lang-btn" data-lang-btn="es" onclick="handleSetLang('es')">ES</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;">
+    <!-- Logo -->
+    <a href="#" style="font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.25rem;text-decoration:none;color:var(--text);">
+      <span class="gradient-text">JGE</span>
+    </a>
+    <!-- Desktop links -->
+    <div style="display:flex;align-items:center;gap:32px;" class="desktop-nav">
+      <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
+      <a href="#projects"   class="nav-link" data-i18n="nav.projects">Projects</a>
+      <a href="#about"      class="nav-link" data-i18n="nav.about">About</a>
+      <a href="#contact"    class="nav-link" data-i18n="nav.contact">Contact</a>
+    </div>
+    <!-- Right side -->
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div style="display:flex;align-items:center;gap:4px;">
+        <button class="lang-btn" data-lang-btn="en" onclick="handleSetLang('en')">EN</button>
+        <span style="color:var(--border);font-size:0.75rem;">|</span>
+        <button class="lang-btn" data-lang-btn="es" onclick="handleSetLang('es')">ES</button>
+      </div>
+      <a href="/portfolio/JUAN_ESCORCIA_CV.pdf" download="JUAN_ESCORCIA_CV.pdf" class="btn-primary" style="padding:8px 20px;font-size:0.8rem;" data-i18n="nav.download_cv">Download CV</a>
+      <!-- Hamburger -->
+      <button id="hamburger" onclick="toggleMobileMenu()" style="display:none;background:none;border:none;color:var(--text);cursor:pointer;font-size:1.5rem;" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════════ -->
+<section id="hero" class="noise-bg grid-bg" style="position:relative;min-height:100vh;display:flex;align-items:center;padding:80px 24px 0;">
+  <div style="max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;padding:80px 0 60px;">
+
+    <div class="reveal">
+      <span class="available-badge">
+        <span class="available-dot"></span>
+        <span data-i18n="hero.available">Available for opportunities</span>
+      </span>
+    </div>
+
+    <div style="margin-top:32px;" class="reveal reveal-delay-1">
+      <h1 class="hero-name">
+        <span class="gradient-text">Senior</span><br>
+        Android<br>
+        <span style="color:var(--muted);">Engineer</span>
+      </h1>
+    </div>
+
+    <p class="reveal reveal-delay-2" data-i18n="hero.subtitle" style="max-width:580px;color:var(--muted);font-size:1.05rem;line-height:1.7;margin-top:28px;">
+      10+ years building native Android apps in Kotlin. Specialized in fintech products, Clean Architecture, OWASP Mobile Security and AI-assisted development.
+    </p>
+
+    <div class="reveal reveal-delay-3" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;align-items:center;">
+      <a href="#projects" class="btn-primary">
+        <span data-i18n="hero.cta_projects">View Projects</span>
+        <span>→</span>
+      </a>
+      <a href="#contact" class="btn-outline" data-i18n="hero.cta_contact">Get in Touch</a>
+      <!-- Social -->
+      <a href="https://www.linkedin.com/in/juan-guillermo-escorcia-maldonado/" target="_blank" rel="noopener" class="btn-outline" style="padding:11px 16px;" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://github.com/MaldJuan94" target="_blank" rel="noopener" class="btn-outline" style="padding:11px 16px;" aria-label="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="reveal reveal-delay-4" style="display:flex;flex-wrap:wrap;gap:0;margin-top:72px;border-top:1px solid var(--border);padding-top:40px;">
+      <div style="flex:1;min-width:130px;padding-right:20px;border-right:1px solid var(--border);">
+        <div class="stat-number" data-counter="10" data-suffix="+">0+</div>
+        <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-top:4px;" data-i18n="stats.years">Years of Experience</div>
+      </div>
+      <div style="flex:1;min-width:130px;padding:0 20px;border-right:1px solid var(--border);">
+        <div class="stat-number" data-counter="12" data-suffix="">0</div>
+        <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-top:4px;" data-i18n="stats.personal_projects">Personal Projects</div>
+      </div>
+      <div style="flex:1;min-width:130px;padding:0 20px;border-right:1px solid var(--border);">
+        <div class="stat-number" data-counter="15" data-suffix="+">0+</div>
+        <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-top:4px;" data-i18n="stats.corporate_projects">Enterprise Projects</div>
+      </div>
+      <div style="flex:1;min-width:130px;padding-left:20px;">
+        <div class="stat-number" data-counter="3" data-suffix="">0</div>
+        <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-top:4px;" data-i18n="stats.companies">Top Companies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SKILLS MARQUEE
+════════════════════════════════════════════════════════════ -->
+<div style="padding:32px 0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);">
+  <div class="marquee-wrapper" style="margin-bottom:12px;">
+    <div class="marquee-track" id="marquee-1">
+      <!-- duplicated for infinite loop -->
+    </div>
+  </div>
+  <div class="marquee-wrapper">
+    <div class="marquee-track reverse" id="marquee-2"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     EXPERIENCE
+════════════════════════════════════════════════════════════ -->
+<section id="experience" style="padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="divider" style="margin-bottom:16px;"></div>
+      <h2 class="section-title" data-i18n="sections.experience">Work Experience</h2>
+    </div>
+
+    <div class="col-2" style="display:grid;gap:48px;" id="exp-grid">
+
+      <!-- Mercado Libre -->
+      <div class="exp-card reveal">
+        <div class="exp-period">Aug 2022 — <span data-i18n="experience.present">Present</span> · <span data-i18n="experience.full_time">Full-time</span></div>
+        <div class="exp-company" style="margin:6px 0 2px;">Mercado Libre</div>
+        <div class="exp-role" data-i18n="experience.mercadolibre.role">Sr. Software Engineer</div>
+        <ul style="margin-top:14px;list-style:none;display:flex;flex-direction:column;gap:6px;" id="ml-bullets"></ul>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;">
+          <span class="tag kotlin">Kotlin</span>
+          <span class="tag android">Android</span>
+          <span class="tag">Appium</span>
+          <span class="tag">OWASP</span>
+          <span class="tag">Fintech</span>
+          <span class="tag">CI/CD</span>
+        </div>
+      </div>
+
+      <!-- Pragma -->
+      <div class="exp-card reveal reveal-delay-1">
+        <div class="exp-period">Oct 2019 — Aug 2022 · <span data-i18n="experience.full_time">Full-time</span></div>
+        <div class="exp-company" style="margin:6px 0 2px;">Pragma S.A</div>
+        <div class="exp-role" data-i18n="experience.pragma.role">Sr. Android Developer</div>
+        <div style="margin-top:10px;font-size:0.8rem;color:var(--accent-2);">App Éxito · App Carulla · Bancolombia PAMS</div>
+        <ul style="margin-top:10px;list-style:none;display:flex;flex-direction:column;gap:6px;" id="pragma-bullets"></ul>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;">
+          <span class="tag kotlin">Kotlin</span>
+          <span class="tag android">Android</span>
+          <span class="tag">Jetpack Compose</span>
+          <span class="tag">Azure DevOps</span>
+        </div>
+      </div>
+
+      <!-- Older jobs row -->
+      <div class="reveal reveal-delay-2" style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+        <div class="card" style="padding:20px;">
+          <div class="exp-period">Jul – Sep 2019</div>
+          <div class="exp-company" style="font-size:1rem;margin:4px 0 2px;">Software Estratégico</div>
+          <div class="exp-role" data-i18n="experience.software_estrategico.role" style="font-size:0.85rem;">Software Development Engineer</div>
+        </div>
+        <div class="card" style="padding:20px;">
+          <div class="exp-period">Nov 2018 – Jul 2019</div>
+          <div class="exp-company" style="font-size:1rem;margin:4px 0 2px;">PersonalSoft S.A.S</div>
+          <div class="exp-role" data-i18n="experience.personalsoft.role" style="font-size:0.85rem;">Software Engineering Analyst</div>
+        </div>
+        <div class="card" style="padding:20px;">
+          <div class="exp-period">Feb – Oct 2018</div>
+          <div class="exp-company" style="font-size:1rem;margin:4px 0 2px;">Horbath Technologies</div>
+          <div class="exp-role" data-i18n="experience.horbath.role" style="font-size:0.85rem;">Developer Engineer</div>
+        </div>
+        <div class="card" style="padding:20px;">
+          <div class="exp-period">Jul 2015 – Sep 2017</div>
+          <div class="exp-company" style="font-size:1rem;margin:4px 0 2px;">Macondo Lab</div>
+          <div class="exp-role" data-i18n="experience.macondo.role" style="font-size:0.85rem;">Developer & Technical Advisor</div>
+          <div style="font-size:0.75rem;color:var(--muted);margin-top:4px;">SIES · Microcréditos BAQ · Apps.co</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CORPORATE PROJECTS
+════════════════════════════════════════════════════════════ -->
+<section id="corporate" class="section-alt" style="padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:12px;">
+      <div class="divider" style="margin-bottom:16px;"></div>
+      <h2 class="section-title" data-i18n="sections.projects_corporate">Enterprise Projects</h2>
+      <p style="color:var(--muted);margin-top:12px;font-size:0.9rem;" data-i18n="corporate.subtitle">Apps shipped at top companies — code under NDA</p>
+    </div>
+
+    <!-- Featured: Mercado Libre -->
+    <div class="card reveal" style="padding:28px;margin-top:40px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:18px;">
+        <div>
+          <div style="font-size:0.72rem;color:var(--accent-2);letter-spacing:.08em;text-transform:uppercase;font-weight:600;" data-i18n="corporate.ml_period">Mercado Libre · Aug 2022 – Present</div>
+          <div style="font-size:1.2rem;font-weight:700;margin-top:4px;" data-i18n="corporate.ml_title">MercadoPago — Android Core</div>
+        </div>
+        <span style="font-size:0.7rem;background:rgba(255,160,0,0.1);color:#FFA000;border:1px solid rgba(255,160,0,0.2);border-radius:999px;padding:4px 14px;white-space:nowrap;flex-shrink:0;" data-i18n="corporate.ml_badge">NDA · 40M+ users</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:18px;" data-i18n="corporate.ml_desc">Native Android fintech development — core payments, sensitive data flows and security (OWASP Mobile Top 10). E2E testing with Appium. AI-assisted development with spec-driven approach and Model Context Protocols.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <span class="tag kotlin">Kotlin</span><span class="tag android">Android</span><span class="tag">Appium</span><span class="tag">OWASP</span><span class="tag">Fintech</span><span class="tag">CI/CD</span><span class="tag">DataDog</span>
+      </div>
+    </div>
+
+    <div class="col-2 reveal" style="display:grid;gap:16px;margin-top:16px;">
+
+      <!-- Pragma S.A -->
+      <div class="card" style="padding:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+          <div>
+            <div style="font-size:0.72rem;color:var(--accent-2);letter-spacing:.08em;text-transform:uppercase;font-weight:600;" data-i18n="corporate.pragma_period">Pragma S.A · Oct 2019 – Aug 2022</div>
+            <div style="font-size:1.05rem;font-weight:700;margin-top:4px;" data-i18n="corporate.pragma_count">3 projects delivered</div>
+          </div>
+          <span style="font-size:0.7rem;background:rgba(61,220,132,0.08);color:#3DDC84;border:1px solid rgba(61,220,132,0.2);border-radius:999px;padding:3px 10px;white-space:nowrap;flex-shrink:0;" data-i18n="corporate.pragma_badge">NDA</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+          <div style="border-left:2px solid var(--accent);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">App Éxito &amp; App Carulla</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.exito_desc">Grupo Éxito retail apps — Colombia's largest supermarket chain. 5M+ users.</div>
+          </div>
+          <div style="border-left:2px solid var(--border);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">Bancolombia PAMS</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.pams_desc">Internal corporate Android app for Bancolombia's field sales agents.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="tag kotlin">Kotlin</span><span class="tag android">Android</span><span class="tag">Jetpack Compose</span><span class="tag">Azure DevOps</span><span class="tag">MVVM</span>
+        </div>
+      </div>
+
+      <!-- Macondo Lab -->
+      <div class="card" style="padding:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+          <div>
+            <div style="font-size:0.72rem;color:var(--accent-2);letter-spacing:.08em;text-transform:uppercase;font-weight:600;" data-i18n="corporate.macondo_period">Macondo Lab · Jul 2015 – Sep 2017</div>
+            <div style="font-size:1.05rem;font-weight:700;margin-top:4px;" data-i18n="corporate.macondo_count">4 projects delivered</div>
+          </div>
+          <span style="font-size:0.7rem;background:rgba(0,217,255,0.08);color:var(--accent-2);border:1px solid rgba(0,217,255,0.2);border-radius:999px;padding:3px 10px;white-space:nowrap;flex-shrink:0;" data-i18n="corporate.macondo_badge">Gov · Fintech</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+          <div style="border-left:2px solid var(--accent);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">SIES — Gobernación del Atlántico</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.sies_desc">Governance platform with Universidad Simón Bolívar. Django + Android.</div>
+          </div>
+          <div style="border-left:2px solid var(--border);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">Microempresarios BAQ</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.micro_desc">Microcredit management, Alcaldía de Barranquilla. Django.</div>
+          </div>
+          <div style="border-left:2px solid var(--border);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">Premio Mérito Empresarial</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.premio_desc">University grant management platform. Java Spring + Django.</div>
+          </div>
+          <div style="border-left:2px solid var(--border);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">Apps.co — Asesoría Técnica</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.appsco_desc">Technical advisor for MinTIC's Apps.co entrepreneurship initiative.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="tag android">Android</span><span class="tag python">Django</span><span class="tag">Java Spring</span><span class="tag">Gov</span>
+        </div>
+      </div>
+
+      <!-- UFO TIC -->
+      <div class="card" style="padding:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+          <div>
+            <div style="font-size:0.72rem;color:var(--accent-2);letter-spacing:.08em;text-transform:uppercase;font-weight:600;" data-i18n="corporate.ufotic_period">UFO TIC · 2017 – 2018</div>
+            <div style="font-size:1.05rem;font-weight:700;margin-top:4px;" data-i18n="corporate.ufotic_count">2 projects delivered</div>
+          </div>
+          <span style="font-size:0.7rem;background:rgba(108,99,255,0.1);color:var(--accent);border:1px solid rgba(108,99,255,0.2);border-radius:999px;padding:3px 10px;white-space:nowrap;flex-shrink:0;" data-i18n="corporate.ufotic_badge">Industry</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+          <div style="border-left:2px solid var(--accent);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">AquaOccidente</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.aqua_desc">Water sample control platform in Palmira. Django + Android.</div>
+          </div>
+          <div style="border-left:2px solid var(--border);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">SosTrack</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.sos_desc">Security management platform for a surveillance company. Django + Android.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="tag android">Android</span><span class="tag python">Django</span><span class="tag">IoT</span>
+        </div>
+      </div>
+
+      <!-- Freelance -->
+      <div class="card" style="padding:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+          <div>
+            <div style="font-size:0.72rem;color:var(--accent-2);letter-spacing:.08em;text-transform:uppercase;font-weight:600;" data-i18n="corporate.freelance_period">Freelance · 2014 – 2019</div>
+            <div style="font-size:1.05rem;font-weight:700;margin-top:4px;" data-i18n="corporate.freelance_count">2 projects delivered</div>
+          </div>
+          <span style="font-size:0.7rem;background:rgba(108,99,255,0.1);color:var(--accent);border:1px solid rgba(108,99,255,0.2);border-radius:999px;padding:3px 10px;white-space:nowrap;flex-shrink:0;" data-i18n="corporate.freelance_badge">Independent</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+          <div style="border-left:2px solid var(--accent);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">iMachine's</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.imachines_desc">Industrial equipment maintenance control. Django + Android + WordPress landing.</div>
+          </div>
+          <div style="border-left:2px solid var(--border);padding-left:12px;">
+            <div style="font-size:0.85rem;font-weight:600;">Tu Mensajero Cartagena</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:2px;" data-i18n="corporate.mensajero_desc">Delivery and errand management platform. PHP. 2014.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="tag android">Android</span><span class="tag python">Django</span><span class="tag">PHP</span><span class="tag">WordPress</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROJECTS — ANDROID
+════════════════════════════════════════════════════════════ -->
+<section id="projects" class="section-alt" style="padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="divider" style="margin-bottom:16px;"></div>
+      <h2 class="section-title" data-i18n="sections.projects_android">Android Apps</h2>
+    </div>
+
+    <div class="col-auto-lg" style="display:grid;gap:24px;">
+
+      <!-- Thread Art App -->
+      <article class="card reveal" data-video="assets/thread-art-app/demo.mp4">
+        <div class="card-media" onclick="openModal('assets/thread-art-app/demo.mp4')">
+          <img src="assets/thread-art-app/screenshot.png" alt="Thread Art Android App" loading="lazy" />
+          <div class="card-play-btn">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="white"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg>
+          </div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag android">Android</span>
+            <span class="tag kotlin">Kotlin</span>
+            <span class="tag python">Python</span>
+            <span class="tag">ML Kit</span>
+            <span class="tag">G-Code</span>
+            <span class="tag">Hilt</span>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.thread_art_app.title">Thread Art — Android App</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.thread_art_app.subtitle">From photo to string art, straight from your Android</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.thread_art_app.desc">Native Android app that generates String Art assembly instructions from photos.</p>
+          <div style="margin-top:8px;padding:8px 12px;background:rgba(108,99,255,0.08);border-radius:6px;font-size:0.75rem;color:var(--accent);" data-i18n="projects.thread_art_app.hardware_note">Part of the full CNC ecosystem ↓</div>
+          <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
+            <button onclick="openModal('assets/thread-art-app/darth-demo.mp4')" class="btn-outline" style="font-size:0.8rem;padding:8px 16px;">Darth Vader ▶</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Track App -->
+      <article class="card reveal reveal-delay-1" data-video="assets/track-app/demo-online.mp4">
+        <div class="card-media" onclick="openModal('assets/track-app/demo-online.mp4')">
+          <img src="assets/track-app/screenshot.png" alt="Track App" loading="lazy" />
+          <div class="card-play-btn">
+            <svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg>
+          </div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag android">Android</span>
+            <span class="tag">Java</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">GPS</span>
+            <span class="tag">Offline-first</span>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.track_app.title">Track App — Field Work Management</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.track_app.subtitle">Dynamic form work orders with GPS tracking, offline-first</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.track_app.desc">Native Android app for field operations management.</p>
+          <div style="display:flex;gap:12px;margin-top:16px;">
+            <button onclick="openModal('assets/track-app/demo-offline-sync.mp4')" class="btn-outline" style="font-size:0.8rem;padding:8px 16px;">Offline Sync ▶</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Open Door App -->
+      <article class="card reveal reveal-delay-2" data-video="assets/open-door-app/demo-app.mp4">
+        <div class="card-media" onclick="openModal('assets/open-door-app/demo-app.mp4')">
+          <img src="assets/open-door-app/screenshot-dark.png" alt="Open Door Android App" loading="lazy" />
+          <div class="card-play-btn">
+            <svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg>
+          </div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag android">Android</span>
+            <span class="tag kotlin">Kotlin</span>
+            <span class="tag">Jetpack Compose</span>
+            <span class="tag firebase">Firebase</span>
+            <span class="tag iot">IoT</span>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.open_door_app.title">Open Door — Android + IoT Widget</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.open_door_app.subtitle">Open your building's door with a tap</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.open_door_app.desc">Native Android app built with Jetpack Compose and Material 3.</p>
+          <div style="display:flex;gap:12px;margin-top:16px;">
+            <button onclick="openModal('assets/open-door-app/demo-widget.mp4')" class="btn-outline" style="font-size:0.8rem;padding:8px 16px;">Widget ▶</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROJECTS — MOBILE & PWA
+════════════════════════════════════════════════════════════ -->
+<section style="padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="divider" style="margin-bottom:16px;"></div>
+      <h2 class="section-title" data-i18n="sections.projects_mobile">Mobile & PWA</h2>
+    </div>
+    <div class="col-auto-md" style="display:grid;gap:24px;">
+
+      <!-- Inspection App -->
+      <article class="card reveal" data-video="assets/inspection-app/demo.mp4">
+        <div class="card-media" onclick="openModal('assets/inspection-app/demo.mp4')">
+          <img src="assets/inspection-app/screenshot.jpg" alt="Inspection Checklist Flutter" loading="lazy" />
+          <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag flutter">Flutter</span>
+            <span class="tag">BLoC</span>
+            <span class="tag">Hive</span>
+            <span class="tag">PDF</span>
+            <span class="tag">Offline</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.inspection_app.title">Inspection Checklist — Flutter</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.inspection_app.subtitle">Professional property inspection app</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.inspection_app.desc">Flutter app for technical property inspections.</p>
+        </div>
+      </article>
+
+      <!-- Open Door PWA -->
+      <article class="card reveal reveal-delay-1" data-video="assets/open-door-pwa/demo.mp4">
+        <div class="card-media" onclick="openModal('assets/open-door-pwa/demo.mp4')">
+          <img src="assets/open-door-pwa/screenshot.png" alt="Open Door PWA" loading="lazy" />
+          <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag">PWA</span>
+            <span class="tag firebase">Firebase</span>
+            <span class="tag iot">IoT</span>
+            <span class="tag">Vanilla JS</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.open_door_pwa.title">Open Door PWA — IoT Web App</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.open_door_pwa.subtitle">Installable PWA to control the ESP32 relay</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.open_door_pwa.desc">PWA that opens the building door via Firebase RTDB.</p>
+          <div style="display:flex;gap:12px;margin-top:16px;">
+            <a href="https://github.com/MaldJuan94/AutomaticDoor" target="_blank" rel="noopener" class="btn-outline" style="font-size:0.8rem;padding:8px 16px;">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Stories App -->
+      <article class="card reveal reveal-delay-2" data-video="assets/stories-app/demo.mp4">
+        <div class="card-media" onclick="openModal('assets/stories-app/demo.mp4')">
+          <img src="assets/stories-app/screenshot.png" alt="Stories App" loading="lazy" />
+          <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag flutter">Flutter</span>
+            <span class="tag">Speech-to-Text</span>
+            <span class="tag">Audio</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.stories_app.title">Stories App — Reading Karaoke</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.stories_app.subtitle">Real-time word highlighting as you read aloud</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.stories_app.desc">Flutter app for children's stories with karaoke effect.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROJECTS — WEB & BACKEND
+════════════════════════════════════════════════════════════ -->
+<section class="section-alt" style="padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="divider" style="margin-bottom:16px;"></div>
+      <h2 class="section-title" data-i18n="sections.projects_web">Web & Backend</h2>
+    </div>
+    <div class="col-auto-md" style="display:grid;gap:24px;">
+
+      <!-- Thread Studio -->
+      <article class="card reveal" data-video="assets/thread-studio/demo.mp4">
+        <div class="card-media" onclick="openModal('assets/thread-studio/demo.mp4')">
+          <img src="assets/thread-studio/screenshot.png" alt="Thread Art Studio Desktop" loading="lazy" />
+          <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag python">Python</span>
+            <span class="tag">PySide6</span>
+            <span class="tag">G-Code</span>
+            <span class="tag">Desktop</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.thread_studio.title">Thread Art Studio — Desktop</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.thread_studio.subtitle">Python desktop app — 3 algorithms</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.thread_studio.desc">Python/PySide6 desktop application with 3D G-Code viewer.</p>
+        </div>
+      </article>
+
+      <!-- Track Admin -->
+      <article class="card reveal reveal-delay-1" data-video="assets/track-admin/demo.mp4">
+        <div class="card-media" onclick="openModal('assets/track-admin/demo.mp4')">
+          <img src="assets/track-admin/screenshot.png" alt="Track Admin Django" loading="lazy" />
+          <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag python">Django</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">PostGIS</span>
+            <span class="tag">Leaflet</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.track_admin.title">Track Admin — Field Ops Backend</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.track_admin.subtitle">Django admin with live GPS maps</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.track_admin.desc">Django backend for Track App system.</p>
+        </div>
+      </article>
+
+      <!-- SimpleCRM -->
+      <article class="card reveal reveal-delay-2">
+        <div class="card-media" onclick="openModal('assets/simple-crm/demo.mp4')">
+          <img src="assets/simple-crm/home.png" alt="SimpleCRM" loading="lazy" />
+          <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag python">Django</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">Fintech</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.simple_crm.title">SimpleCRM — HOA Bank Management</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.simple_crm.subtitle">Residential community financial platform</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.simple_crm.desc">Web platform for condominium administration.</p>
+        </div>
+      </article>
+
+      <!-- QuizWeb -->
+      <article class="card reveal">
+        <div class="card-media" onclick="openModal('assets/quiz-web/demo-desktop.mp4')">
+          <img src="assets/quiz-web/screenshot.png" alt="QuizWeb" loading="lazy" />
+          <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">UIkit</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.quiz_web.title">QuizWeb — Quiz Platform</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.quiz_web.subtitle">University quiz creation platform</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.quiz_web.desc">PHP web app with a full quiz engine.</p>
+        </div>
+      </article>
+
+      <!-- Fastory -->
+      <article class="card reveal reveal-delay-1">
+        <div class="card-media" onclick="openModal('assets/fastory/demo.mp4')">
+          <img src="assets/fastory/screenshot.png" alt="Fastory" loading="lazy" />
+          <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MVC</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.fastory.title">Fastory — Restaurant Inventory</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.fastory.subtitle">Restaurant management system</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.fastory.desc">PHP web app with custom MVC framework.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HARDWARE & IoT
+════════════════════════════════════════════════════════════ -->
+<section class="section-hardware" style="padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="divider" style="margin-bottom:16px;"></div>
+      <h2 class="section-title" data-i18n="sections.projects_hardware">Hardware & IoT</h2>
+    </div>
+
+    <!-- CNC Machine -->
+    <div class="card reveal" style="margin-bottom:32px;padding:32px;">
+      <div class="col-2" style="display:grid;gap:32px;align-items:start;">
+        <div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+            <span class="tag">CNC</span>
+            <span class="tag">G-Code</span>
+            <span class="tag">GRBL</span>
+            <span class="tag">Hardware</span>
+            <span class="tag">NanoHTTPd</span>
+          </div>
+          <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:8px;" data-i18n="projects.cnc_machine.title">CNC String Art Machine</h3>
+          <p style="font-size:0.85rem;color:var(--accent-2);margin-bottom:14px;" data-i18n="projects.cnc_machine.subtitle">I designed and built a CNC that nails and weaves thread automatically</p>
+          <p style="color:var(--muted);line-height:1.7;font-size:0.9rem;" data-i18n="projects.cnc_machine.desc">Custom CNC machine that receives G-Code from the apps.</p>
+          <div style="display:flex;gap:12px;margin-top:20px;">
+            <button onclick="openModal('assets/cnc-machine/drill-phase.mp4')" class="btn-primary" style="font-size:0.85rem;padding:10px 20px;">Drill Phase ▶</button>
+            <button onclick="openModal('assets/cnc-machine/weave-phase.mp4')" class="btn-outline" style="font-size:0.85rem;padding:10px 20px;">Weave Phase ▶</button>
+          </div>
+          <!-- Failures section -->
+          <div class="failure-card" style="margin-top:24px;">
+            <div style="font-weight:700;font-size:0.9rem;margin-bottom:4px;" data-i18n="projects.cnc_machine.failures_title">Real engineering process</div>
+            <div style="font-size:0.82rem;color:var(--muted);" data-i18n="projects.cnc_machine.failures_desc">Not everything works on the first try.</div>
+            <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+              <div class="gallery-item" style="width:80px;height:80px;" onclick="openImgModal('assets/cnc-machine/failure-1.jpg')">
+                <img src="assets/cnc-machine/failure-1.jpg" alt="Failure 1" loading="lazy" />
+              </div>
+              <div class="gallery-item" style="width:80px;height:80px;" onclick="openImgModal('assets/cnc-machine/failure-2.jpg')">
+                <img src="assets/cnc-machine/failure-2.jpg" alt="Failure 2" loading="lazy" />
+              </div>
+              <div class="gallery-item" style="width:80px;height:80px;" onclick="openImgModal('assets/cnc-machine/failure-process.jpg')">
+                <img src="assets/cnc-machine/failure-process.jpg" alt="Failure process" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery -->
+        <div class="gallery-grid" style="grid-template-columns:repeat(2,1fr);">
+          <div class="gallery-item" onclick="openImgModal('assets/cnc-machine/machine-weaving.jpg')">
+            <img src="assets/cnc-machine/machine-weaving.jpg" alt="CNC weaving" loading="lazy" />
+          </div>
+          <div class="gallery-item" onclick="openImgModal('assets/cnc-machine/result-darth.jpg')">
+            <img src="assets/cnc-machine/result-darth.jpg" alt="Darth Vader result" loading="lazy" />
+          </div>
+          <div class="gallery-item" onclick="openImgModal('assets/cnc-machine/result-cat.jpg')">
+            <img src="assets/cnc-machine/result-cat.jpg" alt="Cat result" loading="lazy" />
+          </div>
+          <div class="gallery-item" onclick="openImgModal('assets/cnc-machine/result-butterfly.jpg')">
+            <img src="assets/cnc-machine/result-butterfly.jpg" alt="Butterfly result" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESP32 Door -->
+    <div class="card reveal reveal-delay-1" style="padding:32px;">
+      <div class="col-2" style="display:grid;gap:32px;align-items:center;">
+        <div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+            <span class="tag iot">ESP32</span>
+            <span class="tag iot">IoT</span>
+            <span class="tag firebase">Firebase</span>
+            <span class="tag">Relay</span>
+            <span class="tag">Bluetooth</span>
+          </div>
+          <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:8px;" data-i18n="projects.esp32_door.title">ESP32 Smart Door — IoT Hardware</h3>
+          <p style="font-size:0.85rem;color:var(--accent-2);margin-bottom:14px;" data-i18n="projects.esp32_door.subtitle">I intercepted my building's intercom with an ESP32 and Firebase</p>
+          <p style="color:var(--muted);line-height:1.7;font-size:0.9rem;" data-i18n="projects.esp32_door.desc">IoT system with 10A relay and Firebase RTDB stream.</p>
+          <div style="display:flex;gap:12px;margin-top:20px;">
+            <button onclick="openModal('assets/shared/esp32/relay-activated.mp4')" class="btn-primary" style="font-size:0.85rem;padding:10px 20px;">Relay Demo ▶</button>
+            <button onclick="openModal('assets/shared/esp32/esp32-boot.mp4')" class="btn-outline" style="font-size:0.85rem;padding:10px 20px;">ESP32 Boot ▶</button>
+          </div>
+        </div>
+        <div style="background:var(--surface-2);border-radius:12px;padding:24px;font-family:monospace;font-size:0.8rem;color:var(--accent-2);line-height:1.8;border:1px solid var(--border);">
+          <div style="color:var(--muted);margin-bottom:8px;">// System flow</div>
+          <div>📱 PWA / Android App</div>
+          <div style="color:var(--muted);">   ↓ PUT /command/opendoor</div>
+          <div>🔥 Firebase RTDB</div>
+          <div style="color:var(--muted);">   ↓ Stream event</div>
+          <div>🤖 ESP32</div>
+          <div style="color:var(--muted);">   ↓ GPIO 15 LOW (~1s)</div>
+          <div>⚡ Relay 10A</div>
+          <div style="color:var(--muted);">   ↓ Circuit closes</div>
+          <div>🚪 Door unlocked ✅</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     GAME
+════════════════════════════════════════════════════════════ -->
+<section style="padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="divider" style="margin-bottom:16px;"></div>
+      <h2 class="section-title" data-i18n="sections.projects_game">Game</h2>
+    </div>
+    <article class="card reveal" style="max-width:480px;">
+      <div class="card-media" onclick="openModal('assets/rescue-game/gameplay.mp4')">
+        <img src="assets/rescue-game/screenshot.png" alt="Rescue Lorraine game" loading="lazy" />
+        <div class="card-play-btn" style="opacity:1;"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+      </div>
+      <div style="padding:20px;">
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+          <span class="tag">Unity</span>
+          <span class="tag">C#</span>
+          <span class="tag">2D</span>
+          <span class="tag">2016</span>
+        </div>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.rescue_game.title">Rescue Lorraine — Unity Game</h3>
+        <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.rescue_game.subtitle">My first 2D game, built in Unity during university (2016)</p>
+        <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.rescue_game.desc">2D game developed in Unity during university.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════════════════════ -->
+<section id="about" class="section-alt" style="padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="divider" style="margin-bottom:16px;"></div>
+      <h2 class="section-title" data-i18n="sections.about">About Me</h2>
+    </div>
+
+    <div class="col-2" style="display:grid;gap:64px;align-items:start;">
+
+      <!-- Bio + Skills -->
+      <div class="reveal">
+        <p id="bio-text" style="color:var(--muted);line-height:1.8;font-size:1rem;white-space:pre-line;"></p>
+
+        <div style="margin-top:40px;">
+          <h3 style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:20px;" data-i18n="sections.skills">Skills</h3>
+          <div id="skills-grid"></div>
+        </div>
+      </div>
+
+      <!-- Education + Certifications -->
+      <div class="reveal reveal-delay-1">
+        <h3 style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:20px;" data-i18n="sections.education">Education</h3>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:40px;">
+          <div class="card" style="padding:16px;">
+            <div style="font-weight:700;">Universidad Simón Bolívar</div>
+            <div style="color:var(--accent-2);font-size:0.85rem;margin:2px 0;" data-i18n="about.education_items.0.title">Systems Engineering</div>
+            <div style="color:var(--muted);font-size:0.8rem;">2012 – 2017 · Barranquilla, Colombia</div>
+          </div>
+          <div class="card" style="padding:16px;">
+            <div style="font-weight:700;">Universidad Simón Bolívar</div>
+            <div style="color:var(--accent-2);font-size:0.85rem;margin:2px 0;" data-i18n="about.education_items.1.title">Software Engineering Diplomacy</div>
+            <div style="color:var(--muted);font-size:0.8rem;">2017 · Barranquilla, Colombia</div>
+          </div>
+        </div>
+
+        <h3 style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:20px;" data-i18n="sections.certifications">Certifications</h3>
+        <div id="certs-list" style="display:flex;flex-direction:column;gap:8px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════════════════════ -->
+<section id="contact" style="padding:96px 24px;background:linear-gradient(180deg, var(--bg) 0%, rgba(108,99,255,0.05) 100%);">
+  <div style="max-width:640px;margin:0 auto;text-align:center;">
+    <div class="reveal">
+      <div class="divider" style="margin:0 auto 16px;"></div>
+      <h2 class="section-title" data-i18n="sections.contact">Contact</h2>
+      <p style="color:var(--muted);margin-top:16px;font-size:1rem;" data-i18n="contact.subtitle">Available for senior Android freelance projects or full-time positions.</p>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:48px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+      <a href="mailto:juanescorcia94@gmail.com" class="btn-primary">📧 juanescorcia94@gmail.com</a>
+      <a href="https://www.linkedin.com/in/juan-guillermo-escorcia-maldonado/" target="_blank" rel="noopener" class="btn-outline">💼 LinkedIn ↗</a>
+      <a href="/portfolio/JUAN_ESCORCIA_CV.pdf" download="JUAN_ESCORCIA_CV.pdf" class="btn-outline" data-i18n="nav.download_cv">Download CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════ -->
+<footer style="padding:32px 24px;border-top:1px solid var(--border);background:var(--surface);">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+    <div style="font-size:0.85rem;color:var(--muted);">
+      © 2025 Juan Guillermo Escorcia Maldonado · <span data-i18n="footer.rights">All rights reserved.</span>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <a href="https://www.linkedin.com/in/juan-guillermo-escorcia-maldonado/" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
+      <a href="https://github.com/MaldJuan94" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+      <span style="color:var(--muted);font-size:0.8rem;" data-i18n="footer.built_with">Built with Vite + Tailwind CSS</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

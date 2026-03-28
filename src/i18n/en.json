@@ -1,0 +1,220 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "download_cv": "Download CV"
+  },
+  "hero": {
+    "available": "Available for opportunities",
+    "title": "Senior Android Engineer",
+    "subtitle": "10+ years building native Android apps in Kotlin. Specialized in fintech products, Clean Architecture, OWASP Mobile Security and AI-assisted development.",
+    "cta_projects": "View Projects",
+    "cta_contact": "Get in Touch"
+  },
+  "stats": {
+    "years": "Years of Experience",
+    "personal_projects": "Personal Projects",
+    "corporate_projects": "Enterprise Projects",
+    "companies": "Top Companies"
+  },
+  "sections": {
+    "experience": "Work Experience",
+    "projects_corporate": "Enterprise Projects",
+    "projects_android": "Android Apps",
+    "projects_mobile": "Mobile & PWA",
+    "projects_web": "Web & Backend",
+    "projects_hardware": "Hardware & IoT",
+    "projects_game": "Game",
+    "about": "About Me",
+    "education": "Education",
+    "certifications": "Certifications",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "projects": {
+    "thread_art_app": {
+      "title": "Thread Art — Android App",
+      "subtitle": "From photo to string art, straight from your Android",
+      "desc": "Native Android app that generates String Art assembly instructions from photos. Features 2 AI algorithms (CTA multicolor and Kaspar), Python integration via Chaquopy, GPU real-time filters, ML Kit subject segmentation, G-Code generation and CNC machine control over HTTP.",
+      "hardware_note": "Part of the full CNC ecosystem ↓"
+    },
+    "track_app": {
+      "title": "Track App — Field Work Management",
+      "subtitle": "Dynamic form work orders with GPS tracking, offline-first",
+      "desc": "Native Android app for field operations management. Server-Driven UI: the backend dynamically defines all form fields. Background GPS tracking, offline-first sync with Django backend. Supports digital signature, QR codes, photos and geolocation validation."
+    },
+    "open_door_app": {
+      "title": "Open Door — Android + IoT Widget",
+      "subtitle": "Open your building's door with a tap — even from the home screen widget",
+      "desc": "Native Android app built with Jetpack Compose and Material 3 that controls an ESP32 relay via Firebase Realtime Database. Includes a home screen widget (Glance API) with Samsung support. Full dark mode and light mode."
+    },
+    "inspection_app": {
+      "title": "Inspection Checklist — Flutter",
+      "subtitle": "Professional property inspection app with PDF export and offline support",
+      "desc": "Flutter app for technical property inspections. Dynamic checklists loaded from JSON, category-based evaluation, photographic evidence, interactive floor plan with marked inspection points and PDF report export. Clean Architecture + BLoC + Hive."
+    },
+    "open_door_pwa": {
+      "title": "Open Door PWA — IoT Web App",
+      "subtitle": "Installable PWA to control the ESP32 relay from any browser",
+      "desc": "Progressive Web App (vanilla JS) that opens the building door by writing to Firebase RTDB. Installable on any device, offline cache via Service Worker, haptic vibration feedback on successful door open."
+    },
+    "stories_app": {
+      "title": "Stories App — Reading Karaoke",
+      "subtitle": "Flutter app that highlights words in real-time as you read aloud",
+      "desc": "Flutter app for children's stories with real-time speech recognition. Words highlight progressively as you read (karaoke effect). Sound effects triggered by keywords, category filters, and support for iOS and Android."
+    },
+    "thread_studio": {
+      "title": "Thread Art Studio — Desktop",
+      "subtitle": "Python desktop app to generate String Art with 3 algorithms",
+      "desc": "Python/PySide6 desktop application. Three algorithms (CTA multicolor, Kaspar, Nail Art), 3D G-Code viewer, i18n (EN/ES), PDF export and assembly instructions. The big sibling of the Android app."
+    },
+    "track_admin": {
+      "title": "Track Admin — Field Ops Backend",
+      "subtitle": "Django admin panel with live GPS maps, dynamic forms and SQL Explorer",
+      "desc": "Django backend for the Track App system. Jet admin UI, Leaflet maps with real GPS routes (GeoDjango), dynamic form engine, CSV/Excel/JSON export and integrated SQL explorer. Includes Colombia's full political-administrative division (DANE data)."
+    },
+    "simple_crm": {
+      "title": "SimpleCRM — HOA Bank Management",
+      "subtitle": "Web platform for residential community financial management",
+      "desc": "Web platform for condominium administration: payment management, financial obligations, reports and transfers. Dark mode + light mode. Built with Django + Vue.js."
+    },
+    "quiz_web": {
+      "title": "QuizWeb — Quiz Platform",
+      "subtitle": "Web platform to create and practice university quizzes",
+      "desc": "PHP web app with a quiz engine: single choice, multiple choice and free text. Multimedia support (image, audio, video), syntax highlighting for code questions, timer and dark mode. Session storage recovery for interrupted sessions."
+    },
+    "fastory": {
+      "title": "Fastory — Restaurant Inventory",
+      "subtitle": "Restaurant management system: sales, inventory and cash register",
+      "desc": "PHP web app with a custom MVC framework (LegoBox). Product and ingredient management, sales, tables, waitstaff, cash register and Word-exportable reports. Roles: Admin / Waiter / Cashier."
+    },
+    "cnc_machine": {
+      "title": "CNC String Art Machine",
+      "subtitle": "I designed and built a CNC that nails and weaves thread automatically",
+      "desc": "Custom CNC machine that receives G-Code generated by the apps (Android + Desktop) and executes two phases: (1) Drill phase — drills the nail holes; (2) Weave phase — moves the thread between nails following the generated pattern. Integrates with the Android app's local HTTP server via NanoHTTPd.",
+      "failures_title": "Real engineering process",
+      "failures_desc": "Not everything works on the first try. These photos document the failures and iterations — because that's what engineering actually looks like."
+    },
+    "esp32_door": {
+      "title": "ESP32 Smart Door — IoT Hardware",
+      "subtitle": "I intercepted my building's intercom with an ESP32 and Firebase",
+      "desc": "IoT system: 10A relay connected to 2 wires of the building's 4-wire intercom. The ESP32 listens to Firebase RTDB via a persistent stream. Powered by a 110V→5V regulator from the intercom panel. WiFi configuration via Bluetooth Serial. Latency: ~1 second from Firebase write to relay trigger."
+    },
+    "rescue_game": {
+      "title": "Rescue Lorraine — Unity Game",
+      "subtitle": "My first 2D game, built in Unity during university (2016)",
+      "desc": "2D game developed in Unity during university (2016). A project that marked the beginning of my software development journey and a passion for building interactive experiences."
+    }
+  },
+  "experience": {
+    "present": "Present",
+    "full_time": "Full-time",
+    "mercadolibre": {
+      "role": "Sr. Software Engineer",
+      "bullets": [
+        "Android native development for fintech products using Kotlin and Java",
+        "Core native and middle layer development integrating server-side services and sensitive data flows",
+        "E2E and integration testing with Appium — ensuring quality in high-traffic critical flows",
+        "Secure coding aligned with OWASP Mobile Top 10: authentication, data protection, financial data handling",
+        "AI-assisted development with spec-driven approach and Model Context Protocols (MCPs)"
+      ]
+    },
+    "pragma": {
+      "role": "Sr. Android Developer",
+      "bullets": [
+        "Led Android development for Grupo Éxito retail apps (App Éxito & App Carulla) — millions of users",
+        "Contributed to Bancolombia's internal PAMS corporate app",
+        "Applied Clean Architecture, MVVM and CI/CD with Azure DevOps"
+      ]
+    },
+    "software_estrategico": {
+      "role": "Software Development Engineer",
+      "bullets": ["Java and Android app development with agile methodologies"]
+    },
+    "personalsoft": {
+      "role": "Software Engineering Analyst",
+      "bullets": [
+        "Web and mobile development with Spring Boot, AngularJS and Angular",
+        "Continuous integration setup with GitFlow"
+      ]
+    },
+    "horbath": {
+      "role": "Developer Engineer",
+      "bullets": ["Full-stack development: Android, Django, Angular 2+, PHP, Spring"]
+    },
+    "macondo": {
+      "role": "Developer & Technical Advisor",
+      "bullets": [
+        "SIES platform for Gobernación del Atlántico (governance system)",
+        "Microcréditos BAQ — microcredit management platform for Alcaldía de Barranquilla",
+        "Technical advisor for Apps.co entrepreneurs (MinTIC initiative)"
+      ]
+    }
+  },
+  "about": {
+    "bio": "I'm Juan Guillermo, a Systems Engineer from Universidad Simón Bolívar (Barranquilla, Colombia). I've spent 10+ years building software, with the last 5 years focused on native Android apps for fintech products in Kotlin.\n\nCurrently at Mercado Libre, I work on the app's native core with a focus on secure coding (OWASP Mobile Top 10), E2E testing with Appium, and close collaboration with design from Figma.\n\nBeyond my day job: I build things with my own hands. The String Art CNC machine you can see in this portfolio was designed, built and programmed from scratch — including the hardware and both the Android and Desktop apps that control it.",
+    "skills_title": "Technical Skills",
+    "education_items": [
+      { "title": "Systems Engineering", "school": "Universidad Simón Bolívar", "year": "2012 – 2017" },
+      { "title": "Software Engineering Diplomacy", "school": "Universidad Simón Bolívar", "year": "2017" }
+    ],
+    "cert_items": [
+      "Speexx English CEFR B1.1 — 2024",
+      "Udemy: Master Java Unit Testing with Spring Boot & Mockito — 2024",
+      "Udemy: DDD, Events & Microservices Modern Architecture — 2023",
+      "Udemy: SOLID Principles and Clean Code — 2023",
+      "Udemy: Mobile Automation — Appium, Cucumber, Android & iOS + Jenkins — 2022",
+      "SCRUMstudy: Scrum Fundamentals Certified — 2019",
+      "Platzi: Kotlin for Android — 2018"
+    ]
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "Available for senior Android freelance projects or full-time positions.",
+    "name_label": "Name",
+    "email_label": "Email",
+    "subject_label": "Subject",
+    "subject_freelance": "Freelance Project",
+    "subject_job": "Job Opportunity",
+    "subject_collab": "Collaboration",
+    "subject_other": "Other",
+    "message_label": "Message",
+    "send_btn": "Send Message",
+    "direct_contact": "Or reach out directly"
+  },
+  "corporate": {
+    "subtitle": "Apps shipped at top companies — code under NDA",
+    "ml_period": "Mercado Libre · Aug 2022 – Present",
+    "ml_title": "MercadoPago — Android Core",
+    "ml_badge": "NDA · 40M+ users",
+    "ml_desc": "Native Android fintech development — core payments, sensitive data flows and security (OWASP Mobile Top 10). E2E testing with Appium. AI-assisted development with spec-driven approach and Model Context Protocols.",
+    "pragma_period": "Pragma S.A · Oct 2019 – Aug 2022",
+    "pragma_count": "3 projects delivered",
+    "pragma_badge": "NDA",
+    "exito_desc": "Grupo Éxito retail apps — Colombia's largest supermarket chain. 5M+ users. Jetpack Compose migration, MVVM, multi-flavor builds and CI/CD with Azure DevOps.",
+    "pams_desc": "Internal corporate Android app for Bancolombia's field sales agents. Offline-first, background sync, role-based workflows and geofencing.",
+    "macondo_period": "Macondo Lab · Jul 2015 – Sep 2017",
+    "macondo_count": "4 projects delivered",
+    "macondo_badge": "Gov · Fintech",
+    "sies_desc": "Governance platform with Universidad Simón Bolívar. Django + Android.",
+    "micro_desc": "Microcredit management, Alcaldía de Barranquilla. Django.",
+    "premio_desc": "University grant management platform. Java Spring + Django.",
+    "appsco_desc": "Technical advisor for MinTIC's Apps.co entrepreneurship initiative.",
+    "ufotic_period": "UFO TIC · 2017 – 2018",
+    "ufotic_count": "2 projects delivered",
+    "ufotic_badge": "Industry",
+    "aqua_desc": "Water sample control platform in Palmira. Django + Android.",
+    "sos_desc": "Security management platform for a surveillance company. Django + Android.",
+    "freelance_period": "Freelance · 2014 – 2019",
+    "freelance_count": "2 projects delivered",
+    "freelance_badge": "Independent",
+    "imachines_desc": "Industrial equipment maintenance control. Django + Android + WordPress landing.",
+    "mensajero_desc": "Delivery and errand management platform. PHP. 2014."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "built_with": "Built with Vite + Tailwind CSS"
+  }
+}
