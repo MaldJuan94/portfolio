@@ -73,7 +73,9 @@ h1, h2, h3, h4, h5 {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+  will-change: transform;
+  transform: translateZ(0);
+  transition: background 0.3s, border-color 0.3s;
   border-bottom: 1px solid transparent;
 }
 #navbar.scrolled {
