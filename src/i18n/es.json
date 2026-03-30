@@ -70,6 +70,11 @@
       "subtitle": "App de escritorio Python para generar String Art con 3 algoritmos",
       "desc": "Aplicación de escritorio Python/PySide6. Tres algoritmos (CTA multicolor, Kaspar, Nail Art), visor 3D de G-Code, i18n (EN/ES), exportación PDF e instrucciones de ensamblaje. El hermano mayor de la app Android."
     },
+    "simple_edit": {
+      "title": "SimplEdit — Editor de Video Privado",
+      "subtitle": "Edita, censura y comprime videos en local — sin nube, sin rastreo",
+      "desc": "Editor de video de escritorio Python/PySide6 hecho para desarrolladores. Blur de rostros, placas y regiones sensibles, corte de segmentos, reemplazo de audio y exportación con control total de calidad. Todo corre localmente con FFmpeg — sin subidas, sin editores online, sin riesgos de privacidad."
+    },
     "track_admin": {
       "title": "Track Admin — Backend de Campo",
       "subtitle": "Panel Django con mapas GPS en vivo, formularios dinámicos y SQL Explorer",
@@ -88,7 +93,7 @@
     "fastory": {
       "title": "Fastory — Inventario de Restaurante",
       "subtitle": "Sistema de administración para restaurantes: ventas, inventario y caja",
-      "desc": "App web PHP con arquitectura MVC custom (LegoBox). Control de productos, ingredientes, ventas, mesas, meseros, caja y reportes exportables a Word. Roles: Admin / Mesero / Cajero."
+      "desc": "App web PHP con arquitectura MVC. Control de productos, ingredientes, ventas, mesas, meseros, caja y reportes exportables a Word. Roles: Admin / Mesero / Cajero."
     },
     "cnc_machine": {
       "title": "Máquina CNC de String Art",

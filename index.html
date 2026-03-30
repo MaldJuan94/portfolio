@@ -117,7 +117,7 @@
         <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-top:4px;" data-i18n="stats.years">Years of Experience</div>
       </div>
       <div style="flex:1;min-width:130px;padding:0 20px;border-right:1px solid var(--border);">
-        <div class="stat-number" data-counter="12" data-suffix="">0</div>
+        <div class="stat-number" data-counter="13" data-suffix="">0</div>
         <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-top:4px;" data-i18n="stats.personal_projects">Personal Projects</div>
       </div>
       <div style="flex:1;min-width:130px;padding:0 20px;border-right:1px solid var(--border);">
@@ -552,8 +552,27 @@
         </div>
       </article>
 
+      <!-- SimplEdit -->
+      <article class="card reveal reveal-delay-1" data-video="assets/simple-edit/demo.mp4">
+        <div class="card-media" onclick="openModal('assets/simple-edit/demo.mp4')">
+          <img src="assets/simple-edit/screenshot.png" alt="SimplEdit Video Editor" loading="lazy" />
+          <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>
+        </div>
+        <div style="padding:20px;">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+            <span class="tag python">Python</span>
+            <span class="tag">PySide6</span>
+            <span class="tag">FFmpeg</span>
+            <span class="tag">Desktop</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:4px;" data-i18n="projects.simple_edit.title">SimplEdit — Privacy-Safe Video Editor</h3>
+          <p style="font-size:0.8rem;color:var(--accent-2);margin-bottom:10px;" data-i18n="projects.simple_edit.subtitle">Edit, censor and compress videos locally</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;" data-i18n="projects.simple_edit.desc">Python/PySide6 desktop video editor. Everything runs locally via FFmpeg.</p>
+        </div>
+      </article>
+
       <!-- Track Admin -->
-      <article class="card reveal reveal-delay-1" data-video="assets/track-admin/demo.mp4">
+      <article class="card reveal reveal-delay-2" data-video="assets/track-admin/demo.mp4">
         <div class="card-media" onclick="openModal('assets/track-admin/demo.mp4')">
           <img src="assets/track-admin/screenshot.png" alt="Track Admin Django" loading="lazy" />
           <div class="card-play-btn"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="rgba(108,99,255,0.8)"/><polygon points="20,16 34,24 20,32" fill="white"/></svg></div>

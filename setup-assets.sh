@@ -73,7 +73,7 @@ cp "$SRC/threadart/proceso_fallo.jpg" "$DST/thread-art-app/failure-process.jpg"
 # ═══════════════════════════════════════════════════════════════
 echo ""
 echo "🖥️  Thread Studio — encoding videos..."
-encode_video "$SRC/Thread/desktop.mov" "$DST/thread-studio/demo.mp4" normal no
+encode_video "$SRC/Thread/desktop.mp4" "$DST/thread-studio/demo.mp4" normal no
 
 echo "🖥️  Thread Studio — copying images..."
 cp "$SRC/Thread/index.png"          "$DST/thread-studio/screenshot.png"
@@ -152,7 +152,7 @@ cp "$SRC/stories_app/index.png" "$DST/stories-app/screenshot.png"
 # ═══════════════════════════════════════════════════════════════
 echo ""
 echo "🎮 Rescue Game — encoding video (high compression)..."
-encode_video "$SRC/rescue/vide.mp4" "$DST/rescue-game/gameplay.mp4" high no
+encode_video "$SRC/rescue/vide.mp4" "$DST/rescue-game/gameplay.mp4" high yes
 
 echo "🎮 Rescue Game — copying images..."
 cp "$SRC/rescue/index.png" "$DST/rescue-game/screenshot.png"
@@ -174,7 +174,7 @@ cp "$SRC/imachine/index.png"    "$DST/track-app/screenshot.png"
 # ═══════════════════════════════════════════════════════════════
 echo ""
 echo "🗺️  Track Admin — encoding video (trim 0:57–2:00)..."
-encode_video "$SRC/TrackAdmin/admin.mov" "$DST/track-admin/demo.mp4" normal no "00:00:57" "00:02:00"
+encode_video "$SRC/TrackAdmin/admin.mp4" "$DST/track-admin/demo.mp4" normal no
 
 echo "🗺️  Track Admin — copying images..."
 cp "$SRC/TrackAdmin/index.png" "$DST/track-admin/screenshot.png"
@@ -205,13 +205,24 @@ cp "$SRC/Quicktory/index.png" "$DST/fastory/screenshot.png"
 # ═══════════════════════════════════════════════════════════════
 echo ""
 echo "🏦 SimpleCRM — encoding video (trim → 4:45)..."
-encode_video "$SRC/SimpleCRM/web_desktop.mov" "$DST/simple-crm/demo.mp4" normal no "" "00:04:45"
+encode_video "$SRC/SimpleCRM/web_desktop.mp4" "$DST/simple-crm/demo.mp4" normal no
 
 echo "🏦 SimpleCRM — copying images..."
 cp "$SRC/SimpleCRM/home.png"           "$DST/simple-crm/home.png"
 cp "$SRC/SimpleCRM/reports.png"        "$DST/simple-crm/reports.png"
 cp "$SRC/SimpleCRM/transfer_black.png" "$DST/simple-crm/transfer-dark.png"
 cp "$SRC/SimpleCRM/transfer_white.png" "$DST/simple-crm/transfer-light.png"
+
+# ═══════════════════════════════════════════════════════════════
+# 13. SIMPLEDIT  (simpledit)  — high compression (large source)
+# ═══════════════════════════════════════════════════════════════
+echo ""
+echo "🎬 SimplEdit — encoding video (high compression)..."
+mkdir -p "$DST/simple-edit"
+encode_video "$SRC/simpledit/video.mp4" "$DST/simple-edit/demo.mp4" high no
+
+echo "🎬 SimplEdit — copying images..."
+cp "$SRC/simpledit/index.png" "$DST/simple-edit/screenshot.png"
 
 echo ""
 echo "✅ Done! Assets ready in $DST"

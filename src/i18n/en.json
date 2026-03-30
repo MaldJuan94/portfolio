@@ -70,6 +70,11 @@
       "subtitle": "Python desktop app to generate String Art with 3 algorithms",
       "desc": "Python/PySide6 desktop application. Three algorithms (CTA multicolor, Kaspar, Nail Art), 3D G-Code viewer, i18n (EN/ES), PDF export and assembly instructions. The big sibling of the Android app."
     },
+    "simple_edit": {
+      "title": "SimplEdit — Privacy-Safe Video Editor",
+      "subtitle": "Edit, censor and compress videos locally — no cloud, no tracking",
+      "desc": "Python/PySide6 desktop video editor built for developers. Blur faces, license plates and sensitive regions, cut segments, replace audio and export with full quality control. Everything runs locally via FFmpeg — no uploads, no online editors, no trust issues."
+    },
     "track_admin": {
       "title": "Track Admin — Field Ops Backend",
       "subtitle": "Django admin panel with live GPS maps, dynamic forms and SQL Explorer",
@@ -88,7 +93,7 @@
     "fastory": {
       "title": "Fastory — Restaurant Inventory",
       "subtitle": "Restaurant management system: sales, inventory and cash register",
-      "desc": "PHP web app with a custom MVC framework (LegoBox). Product and ingredient management, sales, tables, waitstaff, cash register and Word-exportable reports. Roles: Admin / Waiter / Cashier."
+      "desc": "PHP web app with MVC framework. Product and ingredient management, sales, tables, waitstaff, cash register and Word-exportable reports. Roles: Admin / Waiter / Cashier."
     },
     "cnc_machine": {
       "title": "CNC String Art Machine",
