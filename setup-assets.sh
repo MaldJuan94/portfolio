@@ -42,6 +42,14 @@ encode_video() {
     "$dst"
 }
 
+# ─── convert_image SRC DST [QUALITY] ────────────────────────────
+# Converts any image (PNG/JPEG/…) to WebP via ffmpeg.
+# QUALITY : 0-100, default 82
+convert_image() {
+  local src="$1" dst="$2" quality="${3:-82}"
+  ffmpeg -y -i "$src" -quality "$quality" "$dst"
+}
+
 echo "📁 Creating asset directories..."
 mkdir -p \
   "$DST/thread-art-app" "$DST/thread-studio" "$DST/cnc-machine" \
@@ -58,15 +66,15 @@ echo "🧵 Thread Art App — encoding videos..."
 encode_video "$SRC/threadart/app.mp4"         "$DST/thread-art-app/demo.mp4"       normal no
 encode_video "$SRC/threadart/darth_video.mp4" "$DST/thread-art-app/darth-demo.mp4" normal no
 
-echo "🧵 Thread Art App — copying images..."
-cp "$SRC/threadart/index.png"         "$DST/thread-art-app/screenshot.png"
-cp "$SRC/threadart/cat_final.jpeg"    "$DST/thread-art-app/result-cat.jpeg"
-cp "$SRC/threadart/cat_software.jpg"  "$DST/thread-art-app/result-software.jpg"
-cp "$SRC/threadart/darth_final.jpg"   "$DST/thread-art-app/result-darth.jpg"
-cp "$SRC/threadart/darth_tejiendo.jpg" "$DST/thread-art-app/weaving.jpg"
-cp "$SRC/threadart/fallo1.jpg"        "$DST/thread-art-app/failure-1.jpg"
-cp "$SRC/threadart/fallo2.jpg"        "$DST/thread-art-app/failure-2.jpg"
-cp "$SRC/threadart/proceso_fallo.jpg" "$DST/thread-art-app/failure-process.jpg"
+echo "🧵 Thread Art App — converting images..."
+convert_image "$SRC/threadart/index.png"          "$DST/thread-art-app/screenshot.webp"
+convert_image "$SRC/threadart/cat_final.jpeg"     "$DST/thread-art-app/result-cat.webp"
+convert_image "$SRC/threadart/cat_software.jpg"   "$DST/thread-art-app/result-software.webp"
+convert_image "$SRC/threadart/darth_final.jpg"    "$DST/thread-art-app/result-darth.webp"
+convert_image "$SRC/threadart/darth_tejiendo.jpg" "$DST/thread-art-app/weaving.webp"
+convert_image "$SRC/threadart/fallo1.jpg"         "$DST/thread-art-app/failure-1.webp"
+convert_image "$SRC/threadart/fallo2.jpg"         "$DST/thread-art-app/failure-2.webp"
+convert_image "$SRC/threadart/proceso_fallo.jpg"  "$DST/thread-art-app/failure-process.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 2. THREAD ART STUDIO  (Thread)
@@ -75,9 +83,9 @@ echo ""
 echo "🖥️  Thread Studio — encoding videos..."
 encode_video "$SRC/Thread/desktop.mp4" "$DST/thread-studio/demo.mp4" normal no
 
-echo "🖥️  Thread Studio — copying images..."
-cp "$SRC/Thread/index.png"          "$DST/thread-studio/screenshot.png"
-cp "$SRC/Thread/mariposa_final.jpg" "$DST/thread-studio/result-butterfly.jpg"
+echo "🖥️  Thread Studio — converting images..."
+convert_image "$SRC/Thread/index.png"          "$DST/thread-studio/screenshot.webp"
+convert_image "$SRC/Thread/mariposa_final.jpg" "$DST/thread-studio/result-butterfly.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 2b. CNC MACHINE  (assets from Thread + threadart)
@@ -87,14 +95,14 @@ echo "🔩 CNC Machine — encoding videos..."
 encode_video "$SRC/Thread/drill_cnc.mp4" "$DST/cnc-machine/drill-phase.mp4" normal yes
 encode_video "$SRC/Thread/tejer_cnc.mp4" "$DST/cnc-machine/weave-phase.mp4" normal no
 
-echo "🔩 CNC Machine — copying images..."
-cp "$SRC/threadart/darth_tejiendo.jpg" "$DST/cnc-machine/machine-weaving.jpg"
-cp "$SRC/threadart/darth_final.jpg"    "$DST/cnc-machine/result-darth.jpg"
-cp "$SRC/threadart/cat_final.jpeg"     "$DST/cnc-machine/result-cat.jpg"
-cp "$SRC/Thread/mariposa_final.jpg"    "$DST/cnc-machine/result-butterfly.jpg"
-cp "$SRC/threadart/fallo1.jpg"         "$DST/cnc-machine/failure-1.jpg"
-cp "$SRC/threadart/fallo2.jpg"         "$DST/cnc-machine/failure-2.jpg"
-cp "$SRC/threadart/proceso_fallo.jpg"  "$DST/cnc-machine/failure-process.jpg"
+echo "🔩 CNC Machine — converting images..."
+convert_image "$SRC/threadart/darth_tejiendo.jpg" "$DST/cnc-machine/machine-weaving.webp"
+convert_image "$SRC/threadart/darth_final.jpg"    "$DST/cnc-machine/result-darth.webp"
+convert_image "$SRC/threadart/cat_final.jpeg"     "$DST/cnc-machine/result-cat.webp"
+convert_image "$SRC/Thread/mariposa_final.jpg"    "$DST/cnc-machine/result-butterfly.webp"
+convert_image "$SRC/threadart/fallo1.jpg"         "$DST/cnc-machine/failure-1.webp"
+convert_image "$SRC/threadart/fallo2.jpg"         "$DST/cnc-machine/failure-2.webp"
+convert_image "$SRC/threadart/proceso_fallo.jpg"  "$DST/cnc-machine/failure-process.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 3. INSPECTION PROPERTIES APP  (inspection_checklist)
@@ -103,15 +111,15 @@ echo ""
 echo "📋 Inspection App — encoding videos..."
 encode_video "$SRC/inspection_checklist/index.mp4" "$DST/inspection-app/demo.mp4" normal no
 
-echo "📋 Inspection App — copying images..."
-cp "$SRC/inspection_checklist/index_app.jpg"      "$DST/inspection-app/screenshot.jpg"
-cp "$SRC/inspection_checklist/compartir.jpg"      "$DST/inspection-app/share-export.jpg"
-cp "$SRC/inspection_checklist/evaluar_item.jpg"   "$DST/inspection-app/item-evaluation.jpg"
-cp "$SRC/inspection_checklist/Floor plan.jpg"     "$DST/inspection-app/floor-plan-sheet.jpg"
-cp "$SRC/inspection_checklist/Foor_plant_map.jpg" "$DST/inspection-app/floor-plan-map.jpg"
-cp "$SRC/inspection_checklist/help_menu.jpg"      "$DST/inspection-app/help-menu.jpg"
-cp "$SRC/inspection_checklist/lista_chequeo.jpg"  "$DST/inspection-app/checklist.jpg"
-cp "$SRC/inspection_checklist/nueo_proyecto.jpg"  "$DST/inspection-app/new-project.jpg"
+echo "📋 Inspection App — converting images..."
+convert_image "$SRC/inspection_checklist/index_app.jpg"      "$DST/inspection-app/screenshot.webp"
+convert_image "$SRC/inspection_checklist/compartir.jpg"      "$DST/inspection-app/share-export.webp"
+convert_image "$SRC/inspection_checklist/evaluar_item.jpg"   "$DST/inspection-app/item-evaluation.webp"
+convert_image "$SRC/inspection_checklist/Floor plan.jpg"     "$DST/inspection-app/floor-plan-sheet.webp"
+convert_image "$SRC/inspection_checklist/Foor_plant_map.jpg" "$DST/inspection-app/floor-plan-map.webp"
+convert_image "$SRC/inspection_checklist/help_menu.jpg"      "$DST/inspection-app/help-menu.webp"
+convert_image "$SRC/inspection_checklist/lista_chequeo.jpg"  "$DST/inspection-app/checklist.webp"
+convert_image "$SRC/inspection_checklist/nueo_proyecto.jpg"  "$DST/inspection-app/new-project.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 4. OPEN DOOR APP  (OpenDoorApp)
@@ -121,9 +129,9 @@ echo "🚪 Open Door App — encoding videos..."
 encode_video "$SRC/OpenDoorApp/open_door_app.mp4"    "$DST/open-door-app/demo-app.mp4"    normal no
 encode_video "$SRC/OpenDoorApp/open_door_widget.mp4" "$DST/open-door-app/demo-widget.mp4" normal no
 
-echo "🚪 Open Door App — copying images..."
-cp "$SRC/OpenDoorApp/index_dark.png" "$DST/open-door-app/screenshot-dark.png"
-cp "$SRC/OpenDoorApp/index.png"      "$DST/open-door-app/screenshot-light.png"
+echo "🚪 Open Door App — converting images..."
+convert_image "$SRC/OpenDoorApp/index_dark.png" "$DST/open-door-app/screenshot-dark.webp"
+convert_image "$SRC/OpenDoorApp/index.png"      "$DST/open-door-app/screenshot-light.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 5. OPEN DOOR PWA  (AutomaticDoor)
@@ -134,8 +142,8 @@ encode_video "$SRC/AutomaticDoor/app.mp4"       "$DST/open-door-pwa/demo.mp4"   
 encode_video "$SRC/AutomaticDoor/esp_relay.mp4" "$DST/shared/esp32/relay-activated.mp4" normal yes
 encode_video "$SRC/AutomaticDoor/esp.mp4"       "$DST/shared/esp32/esp32-boot.mp4"      normal yes
 
-echo "🌐 Open Door PWA — copying images..."
-cp "$SRC/AutomaticDoor/index.png" "$DST/open-door-pwa/screenshot.png"
+echo "🌐 Open Door PWA — converting images..."
+convert_image "$SRC/AutomaticDoor/index.png" "$DST/open-door-pwa/screenshot.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 6. STORIES APP  (stories_app)
@@ -144,8 +152,8 @@ echo ""
 echo "📚 Stories App — encoding videos..."
 encode_video "$SRC/stories_app/app.mp4" "$DST/stories-app/demo.mp4" normal yes
 
-echo "📚 Stories App — copying images..."
-cp "$SRC/stories_app/index.png" "$DST/stories-app/screenshot.png"
+echo "📚 Stories App — converting images..."
+convert_image "$SRC/stories_app/index.png" "$DST/stories-app/screenshot.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 7. RESCUE GAME  (rescue)  — high compression
@@ -154,8 +162,8 @@ echo ""
 echo "🎮 Rescue Game — encoding video (high compression)..."
 encode_video "$SRC/rescue/vide.mp4" "$DST/rescue-game/gameplay.mp4" high yes
 
-echo "🎮 Rescue Game — copying images..."
-cp "$SRC/rescue/index.png" "$DST/rescue-game/screenshot.png"
+echo "🎮 Rescue Game — converting images..."
+convert_image "$SRC/rescue/index.png" "$DST/rescue-game/screenshot.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 8. TRACK APP  (imachine)
@@ -165,9 +173,9 @@ echo "📡 Track App — encoding videos..."
 encode_video "$SRC/imachine/funcion_offline_sync.mp4" "$DST/track-app/demo-offline-sync.mp4" normal no
 encode_video "$SRC/imachine/funcion_online.mp4"       "$DST/track-app/demo-online.mp4"       normal no
 
-echo "📡 Track App — copying images..."
-cp "$SRC/imachine/permisos.png" "$DST/track-app/permissions.png"
-cp "$SRC/imachine/index.png"    "$DST/track-app/screenshot.png"
+echo "📡 Track App — converting images..."
+convert_image "$SRC/imachine/permisos.png" "$DST/track-app/permissions.webp"
+convert_image "$SRC/imachine/index.png"    "$DST/track-app/screenshot.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 9. TRACK ADMIN  (TrackAdmin)  — trim 0:57 → 2:00
@@ -176,8 +184,8 @@ echo ""
 echo "🗺️  Track Admin — encoding video (trim 0:57–2:00)..."
 encode_video "$SRC/TrackAdmin/admin.mp4" "$DST/track-admin/demo.mp4" normal no
 
-echo "🗺️  Track Admin — copying images..."
-cp "$SRC/TrackAdmin/index.png" "$DST/track-admin/screenshot.png"
+echo "🗺️  Track Admin — converting images..."
+convert_image "$SRC/TrackAdmin/index.png" "$DST/track-admin/screenshot.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 10. QUIZ PLATFORM WEB  (QuizWeb)  — trim 0:08 → 1:37
@@ -187,8 +195,8 @@ echo "❓ QuizWeb — encoding videos..."
 encode_video "$SRC/QuizWeb/web_desktop.mov" "$DST/quiz-web/demo-desktop.mp4" normal no "00:00:08" "00:01:37"
 encode_video "$SRC/QuizWeb/web_mobile.mp4"  "$DST/quiz-web/demo-mobile.mp4"  normal no
 
-echo "❓ QuizWeb — copying images..."
-cp "$SRC/QuizWeb/index.png" "$DST/quiz-web/screenshot.png"
+echo "❓ QuizWeb — converting images..."
+convert_image "$SRC/QuizWeb/index.png" "$DST/quiz-web/screenshot.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 11. FASTORY  (Quicktory)  — trim 0:26 → 3:00
@@ -197,8 +205,8 @@ echo ""
 echo "🍕 Fastory — encoding video (trim 0:26–3:00)..."
 encode_video "$SRC/Quicktory/fastory_web.mov" "$DST/fastory/demo.mp4" normal no "00:00:26" "00:03:00"
 
-echo "🍕 Fastory — copying images..."
-cp "$SRC/Quicktory/index.png" "$DST/fastory/screenshot.png"
+echo "🍕 Fastory — converting images..."
+convert_image "$SRC/Quicktory/index.png" "$DST/fastory/screenshot.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 12. SIMPLE CRM  (SimpleCRM)  — trim end at 4:45
@@ -207,11 +215,11 @@ echo ""
 echo "🏦 SimpleCRM — encoding video (trim → 4:45)..."
 encode_video "$SRC/SimpleCRM/web_desktop.mp4" "$DST/simple-crm/demo.mp4" normal no
 
-echo "🏦 SimpleCRM — copying images..."
-cp "$SRC/SimpleCRM/home.png"           "$DST/simple-crm/home.png"
-cp "$SRC/SimpleCRM/reports.png"        "$DST/simple-crm/reports.png"
-cp "$SRC/SimpleCRM/transfer_black.png" "$DST/simple-crm/transfer-dark.png"
-cp "$SRC/SimpleCRM/transfer_white.png" "$DST/simple-crm/transfer-light.png"
+echo "🏦 SimpleCRM — converting images..."
+convert_image "$SRC/SimpleCRM/home.png"           "$DST/simple-crm/home.webp"
+convert_image "$SRC/SimpleCRM/reports.png"        "$DST/simple-crm/reports.webp"
+convert_image "$SRC/SimpleCRM/transfer_black.png" "$DST/simple-crm/transfer-dark.webp"
+convert_image "$SRC/SimpleCRM/transfer_white.png" "$DST/simple-crm/transfer-light.webp"
 
 # ═══════════════════════════════════════════════════════════════
 # 13. SIMPLEDIT  (simpledit)  — high compression (large source)
@@ -221,8 +229,8 @@ echo "🎬 SimplEdit — encoding video (high compression)..."
 mkdir -p "$DST/simple-edit"
 encode_video "$SRC/simpledit/video.mp4" "$DST/simple-edit/demo.mp4" high no
 
-echo "🎬 SimplEdit — copying images..."
-cp "$SRC/simpledit/index.png" "$DST/simple-edit/screenshot.png"
+echo "🎬 SimplEdit — converting images..."
+convert_image "$SRC/simpledit/index.png" "$DST/simple-edit/screenshot.webp"
 
 echo ""
 echo "✅ Done! Assets ready in $DST"
